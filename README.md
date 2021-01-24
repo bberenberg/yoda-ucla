@@ -8,7 +8,7 @@ Usage:
 4. `tar -x -f ~/genome-data/genome.tar`
 5. `rm ~/genome-data/genome.tar`
 6. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
-7. `nohup ~/.local/bin/kaptive.py -v -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
+7. `nohup ~/.local/bin/kaptive.py -v -t 8 -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
    * Review the [Kaptive options](https://github.com/katholt/Kaptive)
 8. Monitor what is happening with the following options
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
