@@ -12,7 +12,7 @@ Usage:
 9. `nohup ~/.local/bin/kaptive.py -v -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
    * Review the [Kaptive options](https://github.com/katholt/Kaptive)
 10. Monitor what is happening with the following options
-    * See what is being logged `less +F ~/output/console.log`
+    * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
     * See a live number of the items that have been processed `watch 'grep "Assembly:" ~/output/console.log | wc -l'`
        * You are waiting for it to get to whatever number you get when you run this command `ls -l ~/genome-data/ncbi-genomes-2021-01-24/ | grep fna | wc -l`
 
