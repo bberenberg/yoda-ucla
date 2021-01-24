@@ -17,7 +17,7 @@ Usage:
 7. Monitor what is happening with the following options
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
     * See a live number of the items that have been processed `watch 'grep "Assembly:" ~/output/console.log | wc -l'`
-       * You are waiting for it to get to whatever number you get when you run this command `ls -l ~/genome-data/ncbi-genomes-2021-01-24/ | grep fna | wc -l`
+       * You are waiting for it to get to whatever number you get when you run this command `ls -l ~/genome-data/ncbi-genomes-2021-01-24/*.fna | wc -l `
 
 Reset:
 1. `rm -rf ~/*.fasta ~/kaptive_temp_* ~/output_table.txt ~/output/* ~/genome-data/genome.tar`
