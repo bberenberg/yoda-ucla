@@ -5,7 +5,7 @@ Usage:
 2. `docker exec -it yoda-ucla /bin/bash`
 2. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
 3. Get this in the image using a command like `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
-4. `tar -x -f ~/genome-data/genome.tar`
+4. `tar -x -f ~/genome-data/genome.tar -C ~/genome-data/`
 5. `rm ~/genome-data/genome.tar`
 6. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
 7. `nohup ~/.local/bin/kaptive.py -v -t 8 -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
