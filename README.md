@@ -1,5 +1,8 @@
 # yoda-usc
 
+Requirements:
+1. [Install Docker](https://docs.docker.com/get-docker/)
+
 Usage:
 1. `docker run --name yoda-usc -dit bberenberg/yoda-usc bash`
 2. `docker exec -it yoda-usc /bin/bash`
