@@ -4,7 +4,9 @@ Usage:
 1. `docker run --name yoda-usc -dit bberenberg/yoda-usc bash`
 2. `docker exec -it yoda-usc /bin/bash`
 2. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
-3. Get this in the image using a command like `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
+   * Example for Firefox (2 is a right click): 
+    ![Firefox Download Steps](Firefox_Download_Steps.png)
+3. Run this command but replace with the URL from the previous step `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
 4. `tar -x -f ~/genome-data/genome.tar -C ~/genome-data/`
 5. `rm ~/genome-data/genome.tar`
 6. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
