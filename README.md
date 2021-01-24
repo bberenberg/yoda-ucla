@@ -1,7 +1,8 @@
 # yoda-ucla
 
 Usage:
-1. `docker run -it bberenberg/yoda-ucla bash`
+1. `docker run --name yoda-ucla -dit bberenberg/yoda-ucla bash`
+2. `docker exec -it yoda-ucla /bin/bash`
 2. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
 3. Get this in the image using a command like `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
 4. `tar -x -f ~/genome-data/genome.tar`
