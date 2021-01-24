@@ -2,23 +2,21 @@
 
 Usage:
 1. `docker run -it bberenberg/yoda-ucla bash`
-2. `cd ~/genome-data`
-3. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
-4. Get this in the image using a command like `wget "https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true" genome.tar`
-5. `tar -x -f genome.tar`
-6. `rm genome.tar`
-7. `cd ncbi-genomes-2021-01-24`
-8. `gunzip *.gz`
-9. `nohup ~/.local/bin/kaptive.py -v -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
+2. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
+3. Get this in the image using a command like `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
+4. `tar -x -f ~/genome-data/genome.tar`
+5. `rm ~/genome-data/genome.tar`
+6. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
+7. `nohup ~/.local/bin/kaptive.py -v -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
    * Review the [Kaptive options](https://github.com/katholt/Kaptive)
-10. Monitor what is happening with the following options
+8. Monitor what is happening with the following options
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
     * See a live number of the items that have been processed `watch 'grep "Assembly:" ~/output/console.log | wc -l'`
        * You are waiting for it to get to whatever number you get when you run this command `ls -l ~/genome-data/ncbi-genomes-2021-01-24/ | grep fna | wc -l`
 
 Reset:
 1. `rm -rf ~/*.fasta ~/kaptive_temp_* ~/output_table.txt ~/output/*`
-2. Go to step 9 above
+2. Go to step 7 above
 
 Uses: 
 - [Kaptive](https://github.com/katholt/Kaptive)
