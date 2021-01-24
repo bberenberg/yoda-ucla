@@ -1,1 +1,23 @@
 # yoda-ucla
+
+Usage:
+1. `docker run -it bberenberg/yoda-ucla bash`
+2. `cd ~/genome-data`
+3. Download data from https://www.ncbi.nlm.nih.gov/sites/batchentrez and get the URL for the file you need
+4. Get this in the image using a command like `wget "https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true" genome.tar`
+5. `tar -x -f genome.tar`
+6. `rm genome.tar`
+7. `cd ncbi-genomes-2021-01-24`
+8. `gunzip *.gz`
+9. `nohup ~/.local/bin/kaptive.py -v -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
+   * Review the [Kaptive options](https://github.com/katholt/Kaptive)
+10. Monitor what is happening with `less +F ~/output/console.log`
+
+Reset:
+1. `rm -rf ~/*.fasta ~/kaptive_temp_* ~/output_table.txt ~/output/*`
+2. Go to step 9 above
+
+Uses: 
+- [Kaptive](https://github.com/katholt/Kaptive)
+- [Biopython](https://github.com/biopython/biopython)
+- [Blast+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
