@@ -9,7 +9,7 @@ Usage:
 5. `rm ~/genome-data/genome.tar`
 6. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
 7. `nohup ~/.local/bin/kaptive.py -v -t 8 -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
-   * Review the [Kaptive options](https://github.com/katholt/Kaptive)
+   * Review the [Kaptive options](https://github.com/katholt/Kaptive). In particular, the above command uses `-t 8` which means 8 threads in parallel. This number should not exceed the number of available cores on your system / available to docker.
 8. Monitor what is happening with the following options
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
     * See a live number of the items that have been processed `watch 'grep "Assembly:" ~/output/console.log | wc -l'`
