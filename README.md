@@ -12,7 +12,7 @@ Usage:
 3. Run this command but replace with the URL from the previous step `wget 'https://www.ncbi.nlm.nih.gov/projects/r_gencoll/ftp_service/nph-gc-ftp-service.cgi/?HistoryId=MCID_600d998359bf921f582c9124&QueryKey=6&ReleaseType=GenBank&FileType=GENOME_FASTA&Flat=true' -O ~/genome-data/genome.tar`
 4. `tar -x -f ~/genome-data/genome.tar -C ~/genome-data/`
 5. `gunzip ~/genome-data/ncbi-genomes-2021-01-24/*.gz`
-6. `nohup ~/.local/bin/kaptive.py -v -t 8 -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output &> ~/output/console.log &`
+6. `nohup ~/.local/bin/kaptive.py -v -t 8 -k ~/kaptive/Acinetobacter_baumannii_k_locus_primary_reference.gbk -a ~/genome-data/ncbi-genomes-2021-01-24/*.fna -o ~/output/ &> ~/output/console.log &`
    * Review the [Kaptive options](https://github.com/katholt/Kaptive). In particular, the above command uses `-t 8` which means 8 threads in parallel. This number should not exceed the number of available cores on your system / available to docker.
 7. Monitor what is happening with the following options
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
@@ -24,6 +24,6 @@ Reset:
 2. Go to step 6 above
 
 Uses: 
-- [Kaptive](https://github.com/katholt/Kaptive)
+- [Kaptive](https://github.com/katholt/Kaptive) - Make sure to read the **[portion on citation](https://github.com/katholt/Kaptive#citation)**
 - [Biopython](https://github.com/biopython/biopython)
 - [Blast+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
