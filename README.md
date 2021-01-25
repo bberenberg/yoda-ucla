@@ -18,6 +18,7 @@ Usage:
     * See what is being logged `less +F ~/output/console.log` (this takes a few minutes to show anything)
     * See a live number of the items that have been processed `watch 'grep "Assembly:" ~/output/console.log | wc -l'`
        * You are waiting for it to get to whatever number you get when you run this command `ls -l ~/genome-data/ncbi-genomes-2021-01-24/*.fna | wc -l `
+8. Once this is done, you can compress everything using a command like `tar -czvf ~/output.tar.gz ~/output/` then push it to a temporary host `curl bashupload.com -T ~/output.tar.gz` which will give you a link like `http://bashupload.com/kjSHb/output.tar.gz` which you can then download.
 
 Reset:
 1. `rm -rf ~/*.fasta ~/kaptive_temp_* ~/output_table.txt ~/output/* ~/genome-data/genome.tar`
