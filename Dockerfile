@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN apt-get update && apt-get install -y python3 python3-pip wget git
+RUN apt-get update && apt-get install -y python3 python3-pip wget git curl
 RUN pip3 install install biopython
 RUN pip3 install --user git+https://github.com/katholt/Kaptive
 RUN mkdir ~/genome-data ~/kaptive ~/output
